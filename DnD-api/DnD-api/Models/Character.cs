@@ -1,7 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace DnD_api.Models
+﻿namespace DnD_api.Models
 {
     public class Character
     {

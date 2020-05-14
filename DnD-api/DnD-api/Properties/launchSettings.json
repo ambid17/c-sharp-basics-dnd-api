@@ -4,7 +4,7 @@
     "DnD_api": {
       "commandName": "Project",
       "launchBrowser": false,
-      "launchUrl": "weatherforecast",
+      "launchUrl": "api/Characters",
       "applicationUrl": "http://localhost:5000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"

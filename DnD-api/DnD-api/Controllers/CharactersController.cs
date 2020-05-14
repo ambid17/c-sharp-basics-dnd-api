@@ -1,11 +1,9 @@
-﻿using System;
+﻿using DnD_api.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using DnD_api.Models;
 
 namespace DnD_api.Controllers
 {
@@ -27,7 +25,7 @@ namespace DnD_api.Controllers
             return await _context.Characters.Include(c => c.CharacterStats).ToListAsync();
         }
 
-        // GET: api/Characters/5
+        // GET: api/Characters/{id}
         [HttpGet("{id}")]
         public async Task<ActionResult<Character>> GetCharacter(long id)
         {
@@ -41,9 +39,7 @@ namespace DnD_api.Controllers
             return character;
         }
 
-        // PUT: api/Characters/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for
-        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        // PUT: api/Characters/{id}
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCharacter(long id, Character character)
         {
@@ -75,8 +71,6 @@ namespace DnD_api.Controllers
         }
 
         // POST: api/Characters
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for
-        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
         public async Task<ActionResult<Character>> PostCharacter(Character character)
         {
@@ -86,7 +80,7 @@ namespace DnD_api.Controllers
             return CreatedAtAction("GetCharacter", new { id = character.CharacterId }, character);
         }
 
-        // DELETE: api/Characters/5
+        // DELETE: api/Characters/{id}
         [HttpDelete("{id}")]
         public async Task<ActionResult<Character>> DeleteCharacter(long id)
         {
